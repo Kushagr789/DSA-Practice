@@ -4,7 +4,7 @@ class Solution {
 
         while(i>=0)
         {
-            if(num.charAt(i)=='1'||num.charAt(i)=='3'||num.charAt(i)=='5'||num.charAt(i)=='7'||num.charAt(i)=='9')
+            if((int)num.charAt(i)%2!=0)
             {
                 return num.substring(0,i+1);
             }
