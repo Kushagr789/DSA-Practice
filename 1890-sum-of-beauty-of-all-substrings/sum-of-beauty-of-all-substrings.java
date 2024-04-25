@@ -3,20 +3,19 @@ class Solution {
         int ans=0;
         for(int i=0;i<s.length();i++)
         {
-            int[] c=new int[26];
+            HashMap<Character,Integer> map=new HashMap<>();
             for(int j=i;j<s.length();j++)
             {
                 char ch=s.charAt(j);
-                c[ch-'a']++;
+                if(map.containsKey(ch))
+                map.put(ch,map.get(ch)+1);
+                else
+                map.put(ch,1);
                 int max=Integer.MIN_VALUE;
                 int min=Integer.MAX_VALUE;
-                for(int x=0;x<26;x++)
-                {
-                    if(c[x]>0)
-                    {
-                        min=Math.min(min,c[x]);
-                        max=Math.max(max,c[x]);
-                    }
+                for (Map.Entry entry : map.entrySet()) {
+                    min=Math.min(min,(int)entry.getValue());
+                        max=Math.max(max,(int)entry.getValue());
                 }
                 ans+=(max-min);
             }
