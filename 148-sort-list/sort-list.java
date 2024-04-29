@@ -12,21 +12,26 @@ class Solution {
     
     public static ListNode merge(ListNode left, ListNode right)
     {
-        ListNode res=null;
-        if(left==null)
-        return right;
-        if(right==null)
-        return left;
-        if(left.val<=right.val)
+        ListNode res=new ListNode(0),p=res;
+        while(left!=null&&right!=null)
         {
-            res=left;
-            res.next=merge(left.next,right);
+            if(left.val<=right.val)
+            {
+                p.next=left;
+                left=left.next;
+            }
+            else{
+                p.next=right;
+                right=right.next;
+            }
+            p=p.next;
         }
-        else{
-            res=right;
-            res.next=merge(left,right.next);
-        }
-        return res;
+        if(left!=null)
+        p.next=left;
+        if(right!=null)
+        p.next=right;
+        
+        return res.next;
     }
    
     public ListNode sortList(ListNode head) {
