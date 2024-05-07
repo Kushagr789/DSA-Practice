@@ -12,7 +12,7 @@ class Solution {
         if(candidates[ind]<=target)
         {
             temp.add(candidates[ind]);
-            rec(ans,target-candidates[ind],candidates,ind,new ArrayList<>(temp));
+            rec(ans,target-candidates[ind],candidates,ind,temp);
             temp.remove(temp.size()-1);
         }
         rec(ans,target,candidates,ind+1,new ArrayList<>(temp));
