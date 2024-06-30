@@ -4,12 +4,13 @@ class Solution {
         HashMap<Character,Integer> map=new HashMap<>();
         int l=0,r=0,maxfreq=0,maxlen=0;
         while(r<n){
-            if(map.containsKey(s.charAt(r)))
-                map.put(s.charAt(r),map.get(s.charAt(r))+1);
+            char ch=s.charAt(r);
+            if(map.containsKey(ch))
+                map.put(ch,map.get(ch)+1);
             else
-                map.put(s.charAt(r),1);
+                map.put(ch,1);
             
-            maxfreq=Math.max(maxfreq,map.get(s.charAt(r)));
+            maxfreq=Math.max(maxfreq,map.get(ch));
 
             while((r-l+1)-maxfreq>k)
             {
