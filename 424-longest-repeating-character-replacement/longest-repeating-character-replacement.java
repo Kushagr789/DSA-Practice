@@ -12,7 +12,7 @@ class Solution {
             
             maxfreq=Math.max(maxfreq,map.get(ch));
 
-            while((r-l+1)-maxfreq>k)
+            if((r-l+1)-maxfreq>k)
             {
                 if(map.get(s.charAt(l))>1)
                     map.put(s.charAt(l),map.get(s.charAt(l))-1);
