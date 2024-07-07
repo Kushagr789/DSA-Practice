@@ -16,11 +16,12 @@
 class Solution {
     long minVal=Long.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {
+        return isValidBST(root,Long.MIN_VALUE,Long.MAX_VALUE);
+    }
+    static boolean isValidBST(TreeNode root,long min,long max){
         if(root==null)return true;
-        if(!isValidBST(root.left)) return false;
-        if(minVal>=root.val) return false;
-        minVal=root.val;
-        if(!isValidBST(root.right)) return false;
-        return true;
+        if(root.val>=max||root.val<=min)return false;
+        return isValidBST(root.left,min,root.val)
+                &&isValidBST(root.right,root.val,max);
     }
 }
