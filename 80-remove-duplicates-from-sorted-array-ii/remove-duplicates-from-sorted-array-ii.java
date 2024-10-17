@@ -5,22 +5,14 @@ class Solution {
         }
         int i=1,j=2;
         while(j<nums.length){
-            if(nums[i]==nums[j]){
-                if(i>=1&&nums[i]==nums[i-1]){
-                    j++;
-                }else{
-                    i++;
-                    int temp=nums[j];
-                nums[j]=nums[i];
-                nums[i]=temp;
-                    j++;
-                }
+            if(nums[i]==nums[j]&&i>=1&&nums[i]==nums[i-1]){
+                j++;
             }else{
                 i++;
                 int temp=nums[j];
                 nums[j]=nums[i];
                 nums[i]=temp;
-                j++;
+                j++;      
             }
         }
         return i+1;
