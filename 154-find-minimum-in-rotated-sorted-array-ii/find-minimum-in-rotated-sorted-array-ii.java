@@ -3,11 +3,9 @@ class Solution {
        
     
         int l=0,r=nums.length-1;
-        int ans=Integer.MAX_VALUE;
         while(l<=r){
             int mid=(l+r)/2;
             if(nums[mid]<nums[r]){
-                ans=Math.min(ans,nums[mid]);
                 r=mid;
             }
             else if(nums[mid]>nums[r]){
